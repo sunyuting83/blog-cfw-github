@@ -349,7 +349,6 @@ const List = {
       this.postList.list[i].status = 3
       if(this.postList.list[i].newcontent) {
         this.postList.list[i].iscontent = !this.postList.list[i].iscontent
-        this.postList.list[i].newcontent = this.md.render(data)
         this.postList.list[i].status = 1
       }else {
         const url = `https://blog.nds9.workers.dev/api/post/?id=${id}`
