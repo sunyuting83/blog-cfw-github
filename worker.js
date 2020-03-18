@@ -66,7 +66,7 @@ async function getList(id, page = 0, limit = 4) {
     })
   }else {
     // console.log(id)
-    let obj_keys = new Set(j.filter(s => s.key.includes(`class_${id}`)))
+    let obj_keys = new Set(j.filter(s => s.key.includes(`_${id}`)))
     obj_keys = Array.from(obj_keys)
     count = obj_keys.length
     obj_keys.filter((x,i) => {
