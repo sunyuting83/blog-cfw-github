@@ -159,7 +159,14 @@ Template.List = `
                   </div>
                 </div>
                 <p v-if="!item.iscontent">{{item.intro}}</p>
-                <p v-else v-html="item.newcontent"></p>
+                <p v-else>
+                  <div v-if="item.status == 1" v-html="item.newcontent"></div>
+                  <div v-else  style="text-align: center;">
+                      <span class="icon has-text-black-bis">
+                        <i class="fas fa-3x fa-spinner fa-pulse"></i>
+                      </span>
+                  </div>
+                </p>
                 <div class="columns is-mobile" @click="getContent(item.content, index)">
                   <div class="column is-three-quarters">
                     <span class="is-size-7 has-text-grey-light is-family-monospace">发布于： {{item.created_at | formatTime('yyyy-MM-dd h:m')}}</span>
@@ -337,11 +344,19 @@ const List = {
   },
   methods: {
     async getContent(id, i){
-      const url = `https://blog.nds9.workers.dev/api/post/?id=${id}`
-      const data = await Fetch(url,{},'GET',text=true)
-      this.postList.list[i].iscontent = !this.postList.list[i].iscontent
-      this.postList.list[i].newcontent = this.md.render(data)
-      this.postList.list[i].showhide = !this.postList.list[i].showhide
+      this.postList.list[i].status = 3
+      if(this.postList.list[i].newcontent) {
+        this.postList.list[i].iscontent = !this.postList.list[i].iscontent
+        this.postList.list[i].newcontent = this.md.render(data)
+        this.postList.list[i].status = 1
+      }else {
+        const url = `https://blog.nds9.workers.dev/api/post/?id=${id}`
+        const data = await Fetch(url,{},'GET',text=true)
+        this.postList.list[i].iscontent = !this.postList.list[i].iscontent
+        this.postList.list[i].newcontent = this.md.render(data)
+        this.postList.list[i].showhide = !this.postList.list[i].showhide
+        this.postList.list[i].status = 1
+      }
     }
   },
   filters: {

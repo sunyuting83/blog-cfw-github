@@ -22,7 +22,7 @@ async function handleRequest(request) {
         const request = {
           url: 'https://raw.githubusercontent.com/db/config.json'
         }
-        data = await getStatic(request)
+        data = await getStatic(request, true)
         break
       default:
         break
@@ -52,7 +52,7 @@ async function getList(id, page = 0, limit = 4) {
   const request = {
     url: 'https://raw.githubusercontent.com/db/index.json'
   }
-  let j = JSON.parse(await getStatic(request))
+  let j = JSON.parse(await getStatic(request, true))
   if(page <= 0) page = 1;
   page = page - 1;
   let start = (page * limit),
@@ -73,7 +73,10 @@ async function getList(id, page = 0, limit = 4) {
       if(i >= start && i <= offset) list = [...list, x.value]
     })
   }
-  let d = JSON.parse(await getStatic(request))
+  const p = {
+    url: 'https://raw.githubusercontent.com/db/post.json'
+  }
+  let d = JSON.parse(await getStatic(p, true))
   let a = new Set(d)
   let b = new Set(list)
   let e = new Set([...a].filter(x => b.has(x.id)))
@@ -89,10 +92,10 @@ async function getPost(id) {
   const request = {
     url: `https://raw.githubusercontent.com/post/${id}.md`
   }
-  return await getStatic(request)
+  return await getStatic(request, true)
 }
 
-async function getStatic(request) {
+async function getStatic(request, static=false) {
   let init = {
     headers: {
       'content-type': 'text/html;charset=UTF-8',
@@ -128,8 +131,11 @@ async function getStatic(request) {
     default:
       break
   }
-
-  return new Response(data, init)
+  if(static) {
+    return data
+  }else {
+    return new Response(data, init)
+  }
 }
 
 async function FetchStatic(url, type = false) {
@@ -191,7 +197,7 @@ const someHTML =  `<!DOCTYPE html>
     <script src="https://cdn.staticfile.org/highlight.js/9.18.1/highlight.min.js"></script>
     <script src="https://cdn.staticfile.org/markdown-it/10.0.0/markdown-it.min.js"></script>
     <script src="https://cdn.staticfile.org/markdown-it-emoji/1.4.0/markdown-it-emoji-light.min.js"></script>
-    <script src="/static/blog.js"></script>
+    <script src="/blog.js"></script>
   </body>
 </html>
 `
