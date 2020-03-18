@@ -144,42 +144,40 @@ Template.List = `
   <div class="container" v-if="postList.status == 0">
     <div class="tile">
       <div class="tile is-vertical is-parent" v-if="postList.list.length > 0">
-        <div class="box" v-for="(item,index) in postList.list" :key="index">
-          <div class="media">
-            <div class="media-content">
-              <div class="content">
-                <div class="columns is-mobile" @click="getContent(item.content, index)">
-                  <div class="column is-three-quarters">
-                    <strong class="is-size-4">{{item.title}}</strong>
-                  </div>
-                  <div class="column has-text-right">
-                    <span>{{item.showhide?'收起':'展开'}}</span>
-                    <span class="icon has-text-info">
-                      <i class="fas" :class="item.showhide?'fa-angle-double-up':'fa-angle-double-down'"></i>
+        <div class="media" v-for="(item,index) in postList.list" :key="index">
+          <div class="media-content">
+            <div class="content">
+              <div class="columns is-mobile" @click="getContent(item.content, index)">
+                <div class="column is-three-quarters">
+                  <strong class="is-size-4">{{item.title}}</strong>
+                </div>
+                <div class="column has-text-right">
+                  <span>{{item.showhide?'收起':'展开'}}</span>
+                  <span class="icon has-text-info">
+                    <i class="fas" :class="item.showhide?'fa-angle-double-up':'fa-angle-double-down'"></i>
+                  </span>
+                </div>
+              </div>
+              <div>
+                <div v-if="!item.iscontent">{{item.intro}}</div>
+                <div v-else>
+                  <div v-if="item.status == 1" v-html="item.newcontent"></div>
+                  <div v-else  style="text-align: center;">
+                    <span class="icon has-text-black-bis">
+                      <i class="fas fa-3x fa-spinner fa-pulse"></i>
                     </span>
                   </div>
                 </div>
-                <div>
-                  <div v-if="!item.iscontent">{{item.intro}}</div>
-                  <div v-else>
-                    <div v-if="item.status == 1" v-html="item.newcontent"></div>
-                    <div v-else  style="text-align: center;">
-                        <span class="icon has-text-black-bis">
-                          <i class="fas fa-3x fa-spinner fa-pulse"></i>
-                        </span>
-                    </div>
-                  </div>
+              </div>
+              <div class="columns is-mobile" @click="getContent(item.content, index)">
+                <div class="column is-three-quarters">
+                  <span class="is-size-7 has-text-grey-light is-family-monospace">发布于： {{item.created_at | formatTime('yyyy-MM-dd h:m')}}</span>
                 </div>
-                <div class="columns is-mobile" @click="getContent(item.content, index)">
-                  <div class="column is-three-quarters">
-                    <span class="is-size-7 has-text-grey-light is-family-monospace">发布于： {{item.created_at | formatTime('yyyy-MM-dd h:m')}}</span>
-                  </div>
-                  <div class="column has-text-right" v-if="item.showhide">
-                    <span>{{item.showhide?'收起':'展开'}}</span>
-                    <span class="icon has-text-info">
-                      <i class="fas" :class="item.showhide?'fa-angle-double-up':'fa-angle-double-down'"></i>
-                    </span>
-                  </div>
+                <div class="column has-text-right" v-if="item.showhide">
+                  <span>{{item.showhide?'收起':'展开'}}</span>
+                  <span class="icon has-text-info">
+                    <i class="fas" :class="item.showhide?'fa-angle-double-up':'fa-angle-double-down'"></i>
+                  </span>
                 </div>
               </div>
             </div>
