@@ -337,7 +337,7 @@ const List = {
   },
   methods: {
     async getContent(id, i){
-      const url = `http://localhost:5000/post/${id}.md`
+      const url = `https://blog.nds9.workers.dev/post/?id=${id}`
       const data = await Fetch(url,{},'GET',text=true)
       this.postList.list[i].iscontent = !this.postList.list[i].iscontent
       this.postList.list[i].newcontent = this.md.render(data)
@@ -399,7 +399,7 @@ const PublicList = {
       }
     },
     async created() {
-      const config = await Fetch('http://localhost:5000/db/config.json')
+      const config = await Fetch('https://blog.nds9.workers.dev/config')
       if(config.status == 0) {
         this.status = config.status
         this.menulist = config.classify
@@ -427,39 +427,10 @@ const PublicList = {
         }
       },
       async getList(id, page = 0, limit = 4) {
-        let j = await Fetch('http://localhost:5000/db/index.json')
-          // console.log(j.length)
-        if(page <= 0) page = 1;
-        page = page - 1;
-        let start = (page * limit),
-            offset = (start + limit) - 1
-        let list = []
-        let count = 0
-        if(id === 'index') {
-          count = j.length
-          j.filter((x,i) => {
-            if(i >= start && i <= offset) list = [...list, x.value]
-          })
-        }else {
-          // console.log(id)
-          let obj_keys = new Set(j.filter(s => s.key.includes(`class_${id}`)))
-          obj_keys = Array.from(obj_keys)
-          count = obj_keys.length
-          obj_keys.filter((x,i) => {
-            if(i >= start && i <= offset) list = [...list, x.value]
-          })
-        }
-        let d = await Fetch('http://localhost:5000/db/post.json')
-        let a = new Set(d)
-        let b = new Set(list)
-        let e = new Set([...a].filter(x => b.has(x.id)))
-        let json = {
-          status: 0,
-          list: Array.from(e)
-        }
-        this.list = json
+        let j = await Fetch(`https://blog.nds9.workers.dev/list?id=${id}&page=${page}&limit=${limit}`)
+        this.list = j
         // console.log(array)
-        this.count = Number(count)
+        this.count = Number(j.count)
       }
     },
     watch: {
