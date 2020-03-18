@@ -158,15 +158,17 @@ Template.List = `
                     </span>
                   </div>
                 </div>
-                <p v-if="!item.iscontent">{{item.intro}}</p>
-                <p v-else>
-                  <div v-if="item.status == 1" v-html="item.newcontent"></div>
-                  <div v-else  style="text-align: center;">
-                      <span class="icon has-text-black-bis">
-                        <i class="fas fa-3x fa-spinner fa-pulse"></i>
-                      </span>
-                  </div>
-                </p>
+                <div>
+                  <p v-if="!item.iscontent">{{item.intro}}</p>
+                  <p v-else>
+                    <div v-if="item.status == 1" v-html="item.newcontent"></div>
+                    <div v-else  style="text-align: center;">
+                        <span class="icon has-text-black-bis">
+                          <i class="fas fa-3x fa-spinner fa-pulse"></i>
+                        </span>
+                    </div>
+                  </p>
+                </div>
                 <div class="columns is-mobile" @click="getContent(item.content, index)">
                   <div class="column is-three-quarters">
                     <span class="is-size-7 has-text-grey-light is-family-monospace">发布于： {{item.created_at | formatTime('yyyy-MM-dd h:m')}}</span>
