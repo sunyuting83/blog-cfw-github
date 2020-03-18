@@ -159,15 +159,15 @@ Template.List = `
                   </div>
                 </div>
                 <div>
-                  <p v-if="!item.iscontent">{{item.intro}}</p>
-                  <p v-else>
+                  <div v-if="!item.iscontent">{{item.intro}}</div>
+                  <div v-else>
                     <div v-if="item.status == 1" v-html="item.newcontent"></div>
                     <div v-else  style="text-align: center;">
                         <span class="icon has-text-black-bis">
                           <i class="fas fa-3x fa-spinner fa-pulse"></i>
                         </span>
                     </div>
-                  </p>
+                  </div>
                 </div>
                 <div class="columns is-mobile" @click="getContent(item.content, index)">
                   <div class="column is-three-quarters">
@@ -349,6 +349,7 @@ const List = {
       this.postList.list[i].status = 3
       if(this.postList.list[i].newcontent) {
         this.postList.list[i].iscontent = !this.postList.list[i].iscontent
+        this.postList.list[i].showhide = !this.postList.list[i].showhide
         this.postList.list[i].status = 1
       }else {
         const url = `https://blog.nds9.workers.dev/api/post/?id=${id}`
