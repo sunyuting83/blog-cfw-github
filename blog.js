@@ -50,6 +50,7 @@ function Fetch(url = '', data = {}, type = 'GET', text = false) {
       })
   })
 }
+const worker_url = 'https://blog.nds9.workers.dev'
 let Template = {}
 /** Menu Template
  * @param {Array} menuData 分类列表
@@ -352,7 +353,7 @@ const List = {
         this.postList.list[i].showhide = !this.postList.list[i].showhide
         this.postList.list[i].status = 1
       }else {
-        const url = `https://blog.nds9.workers.dev/api/post/?id=${id}`
+        const url = `${worker_url}/api/post/?id=${id}`
         const data = await Fetch(url,{},'GET',text=true)
         this.postList.list[i].iscontent = !this.postList.list[i].iscontent
         this.postList.list[i].newcontent = this.md.render(data)
@@ -416,7 +417,7 @@ const PublicList = {
       }
     },
     async created() {
-      const config = await Fetch('https://blog.nds9.workers.dev/api/config')
+      const config = await Fetch(`${worker_url}/api/config`)
       if(config.status == 0) {
         this.status = config.status
         this.menulist = config.classify
@@ -444,7 +445,7 @@ const PublicList = {
         }
       },
       async getList(id, page = 0, limit = 4) {
-        let j = await Fetch(`https://blog.nds9.workers.dev/api/list?id=${id}&page=${page}&limit=${limit}`)
+        let j = await Fetch(`${worker_url}/api/list?id=${id}&page=${page}&limit=${limit}`)
         this.list = j
         // console.log(array)
         this.count = Number(j.count)
