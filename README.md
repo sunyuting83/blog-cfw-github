@@ -96,7 +96,7 @@ vue负责渲染页面
 
 ## json文件说明
 
-#### <a id="#config">config.json</a>
+#### <a name="#config">config.json</a>
 
 ```json
 {
@@ -129,7 +129,7 @@ vue负责渲染页面
 
 ```classify:分类列表```
 
-##### <a id="#classify">classify说明：</a> 
+##### <a name="#classify">classify说明：</a> 
 
 ```title:分类名称```
 
@@ -143,7 +143,7 @@ vue负责渲染页面
 
 ***
 
-#### <a id="#index">index.json</a>
+#### <a name="#index">index.json</a>
 
 ```json
 [
@@ -164,7 +164,7 @@ value的值对应 post.json 里文章id
 
 ***
 
-#### <a id="#post">post.json</a>
+#### <a name="#post">post.json</a>
 
 ```json
 [
