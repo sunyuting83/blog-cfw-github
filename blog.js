@@ -337,7 +337,7 @@ const List = {
   },
   methods: {
     async getContent(id, i){
-      const url = `https://blog.nds9.workers.dev/post/?id=${id}`
+      const url = `https://blog.nds9.workers.dev/api/post/?id=${id}`
       const data = await Fetch(url,{},'GET',text=true)
       this.postList.list[i].iscontent = !this.postList.list[i].iscontent
       this.postList.list[i].newcontent = this.md.render(data)
@@ -399,7 +399,7 @@ const PublicList = {
       }
     },
     async created() {
-      const config = await Fetch('https://blog.nds9.workers.dev/config')
+      const config = await Fetch('https://blog.nds9.workers.dev/api/config')
       if(config.status == 0) {
         this.status = config.status
         this.menulist = config.classify
@@ -427,7 +427,7 @@ const PublicList = {
         }
       },
       async getList(id, page = 0, limit = 4) {
-        let j = await Fetch(`https://blog.nds9.workers.dev/list?id=${id}&page=${page}&limit=${limit}`)
+        let j = await Fetch(`https://blog.nds9.workers.dev/api/list?id=${id}&page=${page}&limit=${limit}`)
         this.list = j
         // console.log(array)
         this.count = Number(j.count)
