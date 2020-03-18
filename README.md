@@ -1,4 +1,7 @@
 # CloudFlare Worker + github + vue 博客系统
+
+[demo](https://blog.nds9.workers.dev)
+
 ---
 ## 依赖
 * [bulma](https://github.com/jgthms/bulma)
@@ -10,6 +13,7 @@
 * [markdown-it](https://github.com/markdown-it/markdown-it)
 * [markdown-it-emoji](https://github.com/markdown-it/markdown-it-emoji)
 ---
+
 ## 简介
 
 基于Cloudflare worker + Githu + Vue的博客系统
@@ -92,7 +96,7 @@ vue负责渲染页面
 
 ## json文件说明
 
-#### <span id="#config">config.json</span>
+#### <a id="#config">config.json</a>
 
 ```json
 {
@@ -109,6 +113,7 @@ vue负责渲染页面
       "sort": 0,
       "intro": ""
     }
+  ]
 }
 ```
 
@@ -124,7 +129,7 @@ vue负责渲染页面
 
 ```classify:分类列表```
 
-##### <span id="#classify">classify说明：</span> 
+##### <a id="#classify">classify说明：</a> 
 
 ```title:分类名称```
 
@@ -138,7 +143,7 @@ vue负责渲染页面
 
 ***
 
-#### <span id="#index">index.json</span>
+#### <a id="#index">index.json</a>
 
 ```json
 [
@@ -159,7 +164,7 @@ value的值对应 post.json 里文章id
 
 ***
 
-#### <span id="#post">post.json</span>
+#### <a id="#post">post.json</a>
 
 ```json
 [
