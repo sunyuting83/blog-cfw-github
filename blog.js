@@ -189,7 +189,7 @@ Template.List = `
           <div class="media">
           <div class="media-content">
             <div class="content  has-text-centered">
-              <img class="image" src="https://s1.ax1x.com/2020/03/15/81FAPA.png" />
+              <img class="image" src="https://image.suning.cn/uimg/ZR/share_order/158501870837440052.jpg" />
             </div>
           </div>
           </div>
