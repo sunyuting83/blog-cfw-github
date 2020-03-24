@@ -161,7 +161,9 @@ Template.List = `
               <div>
                 <div v-if="!item.iscontent">{{item.intro}}</div>
                 <div v-else>
-                  <div v-if="item.status == 0" v-html="item.newcontent"></div>
+                  <div v-if="item.status == 0">
+                    <div v-html="item.newcontent"></div>
+                  </div>
                   <div v-else  style="text-align: center;">
                     <span class="icon has-text-black-bis">
                       <i class="fas fa-3x fa-spinner fa-pulse"></i>
