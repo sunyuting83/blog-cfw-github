@@ -161,7 +161,7 @@ Template.List = `
               <div>
                 <div v-if="!item.iscontent">{{item.intro}}</div>
                 <div v-else>
-                  <div v-if="item.status == 1" v-html="item.newcontent"></div>
+                  <div v-if="item.status == 0" v-html="item.newcontent"></div>
                   <div v-else  style="text-align: center;">
                     <span class="icon has-text-black-bis">
                       <i class="fas fa-3x fa-spinner fa-pulse"></i>
@@ -345,18 +345,17 @@ const List = {
   },
   methods: {
     async getContent(id, i){
-      this.postList.list[i].status = 3
       if(this.postList.list[i].newcontent) {
         this.postList.list[i].iscontent = !this.postList.list[i].iscontent
         this.postList.list[i].showhide = !this.postList.list[i].showhide
-        this.postList.list[i].status = 1
+        this.postList.list[i].status = 0
       }else {
         const url = `${worker_url}/api/post/?id=${id}`
         const data = await Fetch(url,{},'GET',text=true)
         this.postList.list[i].iscontent = !this.postList.list[i].iscontent
         this.postList.list[i].newcontent = this.md.render(data)
         this.postList.list[i].showhide = !this.postList.list[i].showhide
-        this.postList.list[i].status = 1
+        this.postList.list[i].status = 0
       }
     }
   },
