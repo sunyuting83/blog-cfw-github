@@ -48,9 +48,9 @@ vue负责渲染页面
 | Path | Description |
 | ------ | ----------- |
 | /db   | 配置及索引json目录 |
-| /db/config.json   | Blog配置文件。 ```status:0``` 请求状态, ```title:博客标题```, ```logo:博客logo url```, ```powered:版权信息```, ```icp:备案信息```, ```classify:分类列表```. classify说明： ```title:分类名称```, ```id:分类id``` 由当前时间戳md5加密生成, ```path: vue路由路径```, ```sort:排序``` 暂时无效, ```intro:文章简介``` |
-| /db/index.json | 文章索引文件 ```key:_分类id.该分类下索引数:文章总索引数```, ```value:文章id``` |
-| /db/post.json | 文章列表 ```title:文章标题```, ```id:文章id``` 生成规则同classify,  ```content:文章内容文件名```,  ```created_at:创建时间```,  ```intro:文章简介```,  ```iscontent:用于判断显示[intro/content]```,  ```showhide:用于判断[展开/收起]```,   ```newcontent:文章标题``` 请求后由vue渲染生成 . |
+| /db/config.json   | Blog配置文件。 json具体配置请查看 <a href="#configjson">config.json说明</a> |
+| /db/index.json | 文章索引文件 json具体配置请查看 <a href="#indexjson">index.json说明</a> |
+| /db/post.json | 文章列表 <a href="#postjson">post.json说明</a> |
 | /post   | 文章目录 |
 | /post/*.md   | 文章.md文件(支持html) |
 | /blog.js   | vue渲染源码 |
@@ -107,7 +107,7 @@ vue负责渲染页面
   "title":"My Blog",
   "logo": "https://cdn.jsdelivr.net/gh/vmlite/static/bulma/images/bulma-type.png",
   "powered": "Powered by Sun &copy; 2020",
-  "icp": "晋ICP备15006824号-3",
+  "icp": "沪ICP备18008848号-1",
   "classify": [
     {
       "title":"Linux", 
