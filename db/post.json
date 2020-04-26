@@ -28,5 +28,15 @@
 		"iscontent": false,
 		"showhide": false,
 		"status": 3
+	},
+	{
+		"title": "使用jsDelvr cdn访问github文件",
+		"id": "20b7846dddc7e5b4",
+		"content": "ba88001cfc69fca5",
+		"created_at": 1587893285324,
+		"intro": "使用jsDelvr cdn访问github仓库文件加速静态资源。切勿滥用",
+		"iscontent": false,
+		"showhide": false,
+		"status": 3
 	}
 ]
