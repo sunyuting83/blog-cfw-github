@@ -61,6 +61,13 @@ vue负责渲染页面
 ---
 
 ## 使用
+0. ##### Node.js 发布工具
++ 确认本地有nodejs环境。在项目目录下运行
+```bash
+node post.js
+```
++ 之后根据提示操作
+
 1. ##### fork 本项目
 + 修改worker.js 53行 改成你的worker.dev地址
 + 修改worker.js 108行 改成你的github账号名
