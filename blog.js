@@ -161,7 +161,7 @@ Template.List = `
               <div>
                 <div v-if="!item.iscontent">{{item.intro}}</div>
                 <div v-else>
-                  <div v-if="item.status == true">
+                  <div v-if="item.status === true">
                     <div v-html="item.newcontent"></div>
                   </div>
                   <div v-else style="text-align: center">
@@ -350,14 +350,14 @@ const List = {
       if(this.postList.list[i].newcontent) {
         this.postList.list[i].iscontent = !this.postList.list[i].iscontent
         this.postList.list[i].showhide = !this.postList.list[i].showhide
-        this.postList.list[i].status = 0
+        this.postList.list[i].status = true
       }else {
         const url = `${worker_url}/api/post/?id=${id}`
         const data = await Fetch(url,{},'GET',text=true)
         this.postList.list[i].iscontent = !this.postList.list[i].iscontent
         this.postList.list[i].newcontent = this.md.render(data)
         this.postList.list[i].showhide = !this.postList.list[i].showhide
-        this.postList.list[i].status = 0
+        this.postList.list[i].status = true
       }
     }
   },
