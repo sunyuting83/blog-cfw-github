@@ -7,7 +7,7 @@
 		"intro": "somecode",
 		"iscontent": false,
 		"showhide": false,
-		"status": 3
+		"status": false
 	},
 	{
 		"title": "Markedown-it示例",
@@ -17,7 +17,7 @@
 		"intro": "somecode",
 		"iscontent": false,
 		"showhide": false,
-		"status": 3
+		"status": false
 	},
 	{
 		"title": "为你的服务器增加Swap分区",
@@ -27,7 +27,7 @@
 		"intro": "避免应用程序内存不足错误的最简单方法之一是为服务器添加一些Swap空间。",
 		"iscontent": false,
 		"showhide": false,
-		"status": 3
+		"status": false
 	},
 	{
 		"title": "使用jsDelvr cdn访问github文件",
@@ -37,6 +37,6 @@
 		"intro": "使用jsDelvr cdn访问github仓库文件加速静态资源。切勿滥用",
 		"iscontent": false,
 		"showhide": false,
-		"status": 3
+		"status": false
 	}
 ]
