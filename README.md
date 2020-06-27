@@ -19,7 +19,7 @@
 
 ## 简介
 
-基于Cloudflare worker + Githu + Vue的博客系统
+基于Cloudflare worker + Github + Vue的博客系统
 
 免服务器
 
