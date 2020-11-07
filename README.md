@@ -69,8 +69,8 @@ node post.js
 + 之后根据提示操作
 
 1. ##### fork 本项目
-+ 修改worker.js 53行 改成你的worker.dev地址
-+ 修改worker.js 108行 改成你的github账号名
++ 修改blog.js 53行 改成你的worker.dev地址
++ 修改worker.js 171行 改成你的github账号名
 
 2. ##### 编辑config.json
 + json具体配置请查看 <a href="#configjson">config.json说明</a>
