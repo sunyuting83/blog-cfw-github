@@ -40,6 +40,12 @@ vue负责渲染页面
 我会抽时间完善的。
 
 ***
+#### CloudFlare域名设置
+1. 设置路由规则 
+![设置路由规则](https://p.pstatp.com/origin/138a100007ad085fc810e "set router")
+2. 添加DNS
+![添加DNS](https://p.pstatp.com/origin/138570001bad9b77b0e3d "add a CNAME to DNS")
+***
 
 #### worker路由
 
